@@ -13,6 +13,9 @@ module.exports = function(app) {
         res.json(friendData)
     });
     
+    app.get("/api/survey", function(req,res) {
+        res.json(surveyData)
+    });
     // API POST Requests
     // handles when user submits a form and submits data to the server
     // When a user submits form data (a JSON objects)
