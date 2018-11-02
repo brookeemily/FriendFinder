@@ -170,9 +170,12 @@
 <!-- SAVE SURVEY ANSWERS TO OUR DATABASE -->
 <!-- THIS IS IMPORTANT!!! -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
+
+
 <script type="text/javascript">
 
     // when the submit button is pressed....
+
     $(".submit").on("click", function (event) {
         event.preventDefault();
 
@@ -181,17 +184,17 @@
             friendName: $("#friend-name").val().trim(),
             friendImage: $("#friend-img").val().trim(),
             scores: [
-            $("#quizQuestion1").val().trim(),
-            $("#quizQuestion2").val().trim(),
-            $("#quizQuestion3").val().trim(),
-            $("#quizQuestion4").val().trim(),
-            $("#quizQuestion5").val().trim(),
-            $("#quizQuestion6").val().trim(),
-            $("#quizQuestion7").val().trim(),
-            $("#quizQuestion8").val().trim(),
-            $("#quizQuestion9").val().trim(),
-            $("#quizQuestion10").val().trim()
-        ]
+                $("#quizQuestion1").val().trim(),
+                $("#quizQuestion2").val().trim(),
+                $("#quizQuestion3").val().trim(),
+                $("#quizQuestion4").val().trim(),
+                $("#quizQuestion5").val().trim(),
+                $("#quizQuestion6").val().trim(),
+                $("#quizQuestion7").val().trim(),
+                $("#quizQuestion8").val().trim(),
+                $("#quizQuestion9").val().trim(),
+                $("#quizQuestion10").val().trim()
+            ]
         };
 
         console.log(newFriend);
@@ -201,26 +204,16 @@
 
 
         $.post("/api/friends", newFriend)
-            .done(function(data) {
+            .done(function (data) {
 
                 if (data) {
                     alert("Yay! You're now a part of Friend Finder. Here is your current friend!");
                     console.log(data);
                 }
-                
+                runFriendQuery();
 
             });
     });
-
-
-
-</script>
-
-
-<!-- THIS IS IMPORTANT!!! -->
-<!-- script that handles the data that the server receives -->
-<!-- jQuery is used to download the data from our server -->
- <!-- <script type="text/javascript">
 
     function runFriendQuery() {
         // This AJAX function uses the URL of our API to GET the data associated with it
@@ -229,51 +222,10 @@
                 console.log(newFriend);
             }
             );
-            compareFriends();
+
     }
+</script>
 
-
-        function compareFriends() {
-            // This AJAX function uses the URL of our API to GET the data associated with it
-            $.ajax({ url: "/api/friends", method: "GET" })
-                .then(function (newFriend) {
-                    console.log(newFriend);
-
-                    // Go through every friend in Friend Finder
-                    for (var i = 0; i < newFriend.length; i++) {
-                        // for (var j = 0; j < newFriend[i].scores.length; j++) {
-                        // console.log(newFriend[i].scores);
-                        console.log(newFriend[i].scores);
-                        // console.log(newFriend[i+1].scores[j]);
-
-                        // var difference = []
-
-
-                        // difference.push((newFriend[i].questionOneAnswer - newFriend[i + 1].questionOneAnswer),
-                        //     (newFriend[i].questionTwoAnswer - newFriend[i + 1].questionTwoAnswer),
-                        //     (newFriend[i].questionThreeAnswer - newFriend[i + 1].questionThreeAnswer),
-                        //     (newFriend[i].questionFourAnswer - newFriend[i + 1].questionFourAnswer),
-                        //     (newFriend[i].questionFiveAnswer - newFriend[i + 1].questionFiveAnswer),
-                        //     (newFriend[i].questionSixAnswer - newFriend[i + 1].questionSixAnswer),
-                        //     (newFriend[i].questionSevenAnswer - newFriend[i + 1].questionSevenAnswer),
-                        //     (newFriend[i].questionEightAnswer - newFriend[i + 1].questionEightAnswer),
-                        //     (newFriend[i].questionNineAnswer - newFriend[i + 1].questionNineAnswer),
-                        //     (newFriend[i].questionTenAnswer - newFriend[i + 1].questionTenAnswer));
-
-
-                        // // Compare user answers
-                        // for (var d = 0; d < difference.length; d++) {
-                        //     console.log(difference[d]);
-                        // }
-                    // }
-                }
-                });
-        }
-
-        
-    runFriendQuery();
-    compareFriends();
-</script> -->
 
 
 <!-- Optional JavaScript -->
