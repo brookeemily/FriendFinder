@@ -1,5 +1,5 @@
 // DATA
-// create an empty array to hold the data
+// create placeholder friends
 
 var arrayOfFriends = [
     {
