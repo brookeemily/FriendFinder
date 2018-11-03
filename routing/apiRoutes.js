@@ -10,7 +10,7 @@ module.exports = function(app) {
     // get the data from the user
     app.get("/api/friends", function(req,res) {
         res.json(arrayOfFriends)
-        console.log(arrayOfFriends);
+        // console.log(arrayOfFriends);
     });
     
 
@@ -35,16 +35,12 @@ module.exports = function(app) {
               difference += Math.abs(arrayOfFriends[i].scores[j] - userScores[j]);
             }
 
-            console.log(difference);
+            // console.log(difference);
             
             
          // in this for-loop, start off with a zero difference and compare the user and the ith friend scores, one set at a time
-             //  whatever the difference is, add to the total difference
-            
-          // parseInt for scores
-
-         
-          // if there is a new minimum, change the best friend index and set the new minimum for next iteration comparisons
+        //  whatever the difference is, add to the total difference
+ 
           if(difference < totalDifference) {
             totalDifference = difference;
             bestFriendName = arrayOfFriends[i].friendName;

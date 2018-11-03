@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
 
+    <link rel="stylesheet" href="style/style.css">
     <!-- JQUERY -->
     <script src="https://code.jquery.com/jquery.js"></script>
 
@@ -19,10 +20,11 @@
 <body>
     <!-- HEADER -->
     <div class="jumbotron">
-        <h1 class="display-4">Friend Finder</h1>
-        <p class="lead">Are you ready to find your friend?</p>
-        <hr class="my-4">
-        <p>answer some questions, find your match</p>
+        <div id="background">
+            <h1 class="display-4">Friend Finder</h1>
+            <p class="lead">Which The Office character would be your BFF?</p>
+            <p>Answer these questions to find your Office pal!</p>
+        </div>
     </div>
 
     <!-- BEGIN SURVEY -->
@@ -39,11 +41,14 @@
                     <label for="reserve-name">Link to a selfie</label>
                     <input type="text" class="form-control" id="friend-img">
                 </div>
-                <h3>Quiz</h3>
+                <br>
+                <h4>Quiz</h4>
+                <h5> Each question will be answered on a scale from 1 (Strongly Disagree) to 5 (Strongly Agree), 3 is neutral.</h5>
+                <br>
 
                 <h6>Question 1</h6>
                 <div class="form-group">
-                    <label for="quizQuestion1">This is the question</label>
+                    <label for="quizQuestion1">You prefer to spend time alone</label>
                     <select class="form-control" id="quizQuestion1">
                         <option>1</option>
                         <option>2</option>
@@ -55,7 +60,7 @@
 
                 <h6>Question 2</h6>
                 <div class="form-group">
-                    <label for="quizQuestion2">This is the question</label>
+                    <label for="quizQuestion2">You are sensitive to other people's feelings</label>
                     <select class="form-control" id="quizQuestion2">
                         <option>1</option>
                         <option>2</option>
@@ -67,7 +72,7 @@
 
                 <h6>Question 3</h6>
                 <div class="form-group">
-                    <label for="quizQuestion3">This is the question</label>
+                    <label for="quizQuestion3">You believe that laughter is the best medicine</label>
                     <select class="form-control" id="quizQuestion3">
                         <option>1</option>
                         <option>2</option>
@@ -79,7 +84,7 @@
 
                 <h6>Question 4</h6>
                 <div class="form-group">
-                    <label for="quizQuestion4">This is the question</label>
+                    <label for="quizQuestion4">You believe that identity theft is a serious crime</label>
                     <select class="form-control" id="quizQuestion4">
                         <option>1</option>
                         <option>2</option>
@@ -91,7 +96,7 @@
 
                 <h6>Question 5</h6>
                 <div class="form-group">
-                    <label for="quizQuestion5">This is the question</label>
+                    <label for="quizQuestion5">You believe that it is important to spend time being creative</label>
                     <select class="form-control" id="quizQuestion5">
                         <option>1</option>
                         <option>2</option>
@@ -103,7 +108,7 @@
 
                 <h6>Question 6</h6>
                 <div class="form-group">
-                    <label for="quizQuestion6">This is the question</label>
+                    <label for="quizQuestion6">You respect authority and would never question your boss or leader</label>
                     <select class="form-control" id="quizQuestion6">
                         <option>1</option>
                         <option>2</option>
@@ -115,7 +120,7 @@
 
                 <h6>Question 7</h6>
                 <div class="form-group">
-                    <label for="quizQuestion7">This is the question</label>
+                    <label for="quizQuestion7">There's no time for fun at work</label>
                     <select class="form-control" id="quizQuestion7">
                         <option>1</option>
                         <option>2</option>
@@ -127,7 +132,7 @@
 
                 <h6>Question 8</h6>
                 <div class="form-group">
-                    <label for="quizQuestion8">This is the question</label>
+                    <label for="quizQuestion8">You believe that it is important to be friends with your co-workers</label>
                     <select class="form-control" id="quizQuestion8">
                         <option>1</option>
                         <option>2</option>
@@ -139,7 +144,7 @@
 
                 <h6>Question 9</h6>
                 <div class="form-group">
-                    <label for="quizQuestion9">This is the question</label>
+                    <label for="quizQuestion9">Generally, you get along with others</label>
                     <select class="form-control" id="quizQuestion9">
                         <option>1</option>
                         <option>2</option>
@@ -151,7 +156,7 @@
 
                 <h6>Question 10</h6>
                 <div class="form-group">
-                    <label for="quizQuestion10">This is the question</label>
+                    <label for="quizQuestion10">You're always looking for the next big thing</label>
                     <select class="form-control" id="quizQuestion10">
                         <option>1</option>
                         <option>2</option>
@@ -162,73 +167,111 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary submit">Submit</button>
+                </form>
+                </div>
+                </div>
+                <!-- Modal that pops up to display best friend -->
+                <!-- <div class="modal" id="bffModal" tabindex="-1" role="dialog">
+                    
+                    <div class="modal-body">
+                        <h4>Your Office Bestie is...</h4>
+                        <div class="divider"></div>
+                        <h5 id="bestFriendName"></h5>
+                        <img id="bestFriendPic" src="">
+                    </div>
+                    <div class="modal-footer">
+                        <a href="/survey" class="modal-action modal-close">Close</a>
+                    </div>
+                </div> -->
+
+                 <!-- Modal Template -->
+    <div id="bffModal" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Your Best Friend is: <span id="bestFriendName"></span></p>
+                    <img src="#" class="img-fluid" id="bestFriendPic">
+                </div>
+                </div>
+            </div>
         </div>
-    </div>
+
+
+    <!-- SAVE SURVEY ANSWERS TO OUR DATABASE -->
+    <!-- THIS IS IMPORTANT!!! -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
+
+
+    <script type="text/javascript">
+
+        // when the submit button is pressed....
+
+        $(".submit").on("click", function (event) {
+            event.preventDefault();
+
+            // save the form elements into newFriend variable
+            var newFriend = {
+                friendName: $("#friend-name").val().trim(),
+                friendImage: $("#friend-img").val().trim(),
+                scores: [
+                    $("#quizQuestion1").val().trim(),
+                    $("#quizQuestion2").val().trim(),
+                    $("#quizQuestion3").val().trim(),
+                    $("#quizQuestion4").val().trim(),
+                    $("#quizQuestion5").val().trim(),
+                    $("#quizQuestion6").val().trim(),
+                    $("#quizQuestion7").val().trim(),
+                    $("#quizQuestion8").val().trim(),
+                    $("#quizQuestion9").val().trim(),
+                    $("#quizQuestion10").val().trim()
+                ]
+            };
+
+            console.log(newFriend);
+
+
+            // this is where more magical code comes in...
+
+
+            $.post("/api/friends", newFriend)
+                .then(function (data) {
+
+                    if (data) {
+                        // alert("Yay! You're now a part of Friend Finder. Here is your current friend!");
+                        console.log(data);
+                        console.log(data.bestFriendName);
+                        $('#bestFriendName').append(data.bestFriendName);
+                        $("#bestFriendPic").attr("src", data.bestFriendPic);
+                        // Pop open the modal dialog
+                        $('#bffModal').modal('show');
+                    }
+                    runFriendQuery();
+
+                });
+
+            function runFriendQuery() {
+                // This AJAX function uses the URL of our API to GET the data associated with it
+                $.ajax({ url: "/api/friends", method: "GET" })
+                    .then(function (newFriend) {
+                        console.log(newFriend);
+                    }
+                    );
+
+            }
+        });
+
+
+    </script>
+
+
 </body>
 
 </html>
-<!-- SAVE SURVEY ANSWERS TO OUR DATABASE -->
-<!-- THIS IS IMPORTANT!!! -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
-
-
-<script type="text/javascript">
-
-    // when the submit button is pressed....
-
-    $(".submit").on("click", function (event) {
-        event.preventDefault();
-
-        // save the form elements into newFriend variable
-        var newFriend = {
-            friendName: $("#friend-name").val().trim(),
-            friendImage: $("#friend-img").val().trim(),
-            scores: [
-                $("#quizQuestion1").val().trim(),
-                $("#quizQuestion2").val().trim(),
-                $("#quizQuestion3").val().trim(),
-                $("#quizQuestion4").val().trim(),
-                $("#quizQuestion5").val().trim(),
-                $("#quizQuestion6").val().trim(),
-                $("#quizQuestion7").val().trim(),
-                $("#quizQuestion8").val().trim(),
-                $("#quizQuestion9").val().trim(),
-                $("#quizQuestion10").val().trim()
-            ]
-        };
-
-        console.log(newFriend);
-
-
-        // this is where more magical code comes in...
-
-
-        $.post("/api/friends", newFriend)
-            .done(function (data) {
-
-                if (data) {
-                    alert("Yay! You're now a part of Friend Finder. Here is your current friend!");
-                    console.log(data);
-                }
-                runFriendQuery();
-
-            });
-
-    function runFriendQuery() {
-        // This AJAX function uses the URL of our API to GET the data associated with it
-        $.ajax({ url: "/api/friends", method: "GET" })
-            .then(function (newFriend) {
-                console.log(newFriend);
-            }
-            );
-
-    }
-    });
-
- 
-</script>
-
-
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

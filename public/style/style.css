@@ -1,0 +1,18 @@
+.jumbotron {
+    background-image: url("https://occ-0-37-2794.1.nflxso.net/art/4326e/4c932caac22f71ad2bd4e7456c8d9b0b3e84326e.jpg");
+    background-size: contain;
+    background-size: 60%;
+    background-position-y: 30%;
+    background-position-x: 70%;
+    background-repeat: no-repeat;
+    background-color: #E99422;
+    /* padding: 150px; */
+}
+
+#background {
+    color: white;
+    left: 300px;
+    top: 50px;
+    /* text-align: center; */
+    /* overflow: hidden; */
+}
